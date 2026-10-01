@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h2 class="text-success">Doctor Dashboard</h2>
+        <p class="lead">Welcome, {{ doctor_name }}!</p>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Today's Appointments</h5>
+        <!-- A button for the doctor to manage their 7-day availability -->
+        <button class="btn btn-sm btn-light text-success">Manage Availability</button>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Patient Name</th>
+                    <th>Age</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Hardcoded for now -->
+                <tr>
+                    <td>10:00 AM</td>
+                    <td>John Doe</td>
+                    <td>35</td>
+                    <td><span class="badge bg-warning text-dark">Waiting</span></td>
+                    <td>
+                        <!-- When they click this, it will take them to a form to write the diagnosis -->
+                        <button class="btn btn-sm btn-success">Complete & Add Notes</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

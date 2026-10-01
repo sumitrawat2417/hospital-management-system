@@ -40,5 +40,21 @@ def patient_dashboard():
     # Hardcoded for now, later we will get the real logged-in user's name
     return render_template('patient_dashboard.html', patient_name="John Doe")
 
+@app.route('/admin/dashboard')
+def admin_dashboard():
+    return render_template('admin_dashboard.html')
+
+@app.route('/admin/add_doctor', methods=['GET', 'POST'])
+def admin_add_doctor():
+    if request.method == 'POST':
+        name = request.form['name']
+        specialization = request.form['specialization']
+        return f"Success! Dr. {name} ({specialization}) was added to the database!"
+    return render_template('admin_add_doctor.html')
+
+@app.route('/doctor/dashboard')
+def doctor_dashboard():
+    return render_template('doctor_dashboard.html', doctor_name="Dr. Smith")
+
 if __name__ == '__main__':
     app.run(debug=True)
