@@ -1,64 +1,97 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row mb-4">
-    <div class="col-md-12">
-        <!-- Using text-danger (red) to make the admin dashboard look distinct -->
-        <h2 class="text-danger">Admin Dashboard</h2>
-        <p class="lead">Hospital Overview & Management</p>
-    </div>
+<!-- Top Header Bar -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="m-0">Welcome Admin</h3>
+    <form class="d-flex" method="GET" action="/search">
+        <input class="form-control me-2" type="search" placeholder="doctor, patient, department..." name="query">
+        <button class="btn btn-outline-primary" type="submit">search</button>
+    </form>
 </div>
 
-<!-- Stats Row: 3 boxes across the screen -->
-<div class="row mb-4">
-    <div class="col-md-4">
-        <div class="card bg-primary text-white shadow-sm text-center p-3">
-            <h3>12</h3>
-            <p class="mb-0">Total Doctors</p>
-        </div>
+<!-- Registered Doctors -->
+<div class="card mb-4 shadow-sm border-dark">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center border-dark">
+        <h5 class="m-0">Registered Doctors</h5>
+        <a href="/admin/add_doctor" class="btn btn-sm btn-outline-success px-3">create</a>
     </div>
-    <div class="col-md-4">
-        <div class="card bg-success text-white shadow-sm text-center p-3">
-            <h3>145</h3>
-            <p class="mb-0">Total Patients</p>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card bg-info text-white shadow-sm text-center p-3">
-            <h3>32</h3>
-            <p class="mb-0">Appointments Today</p>
-        </div>
-    </div>
-</div>
-
-<!-- Management Section -->
-<div class="card shadow-sm">
-    <div class="card-header bg-white d-flex justify-content-between align-items-center">
-        <h5 class="mb-0 text-primary">Manage Doctors</h5>
-        <!-- Button linking to the add doctor form -->
-        <a href="/admin/add_doctor" class="btn btn-sm btn-primary">+ Add New Doctor</a>
-    </div>
-    <div class="card-body">
-        <table class="table table-striped table-hover">
-            <thead>
+    <div class="card-body p-0">
+        <table class="table table-bordered mb-0 border-dark">
+            <tbody>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Specialization</th>
-                    <th>Experience</th>
-                    <th>Actions</th>
+                    <td class="align-middle">Dr. abcde</td>
+                    <td class="text-end" style="width: 250px;">
+                        <button class="btn btn-sm btn-outline-warning">edit</button>
+                        <button class="btn btn-sm btn-outline-danger">delete</button>
+                        <button class="btn btn-sm btn-dark">blacklist</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">Dr. Pqrst</td>
+                    <td class="text-end">
+                        <button class="btn btn-sm btn-outline-warning">edit</button>
+                        <button class="btn btn-sm btn-outline-danger">delete</button>
+                        <button class="btn btn-sm btn-dark">blacklist</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Registered Patients -->
+<div class="card mb-4 shadow-sm border-dark">
+    <div class="card-header bg-white border-dark">
+        <h5 class="m-0">Registered Patients</h5>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-bordered mb-0 border-dark">
+            <tbody>
+                <tr>
+                    <td class="align-middle">Mr. abcde</td>
+                    <td class="text-end" style="width: 250px;">
+                        <button class="btn btn-sm btn-outline-warning">edit</button>
+                        <button class="btn btn-sm btn-outline-danger">delete</button>
+                        <button class="btn btn-sm btn-dark">blacklist</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-middle">Miss. Pqrst</td>
+                    <td class="text-end">
+                        <button class="btn btn-sm btn-outline-warning">edit</button>
+                        <button class="btn btn-sm btn-outline-danger">delete</button>
+                        <button class="btn btn-sm btn-dark">blacklist</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Upcoming Appointments -->
+<div class="card shadow-sm mb-4 border-dark">
+    <div class="card-header bg-white border-dark">
+        <h5 class="m-0">Upcoming Appointments</h5>
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-bordered mb-0 border-dark">
+            <thead class="table-light">
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Patient Name</th>
+                    <th>Doctor Name</th>
+                    <th>Department</th>
+                    <th>Patient History</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Hardcoded for now until we have database loop -->
                 <tr>
-                    <td>1</td>
-                    <td>Dr. Smith</td>
+                    <td>1001.</td>
+                    <td>Mr. abcde</td>
+                    <td>Dr. pqrst</td>
                     <td>Cardiology</td>
-                    <td>10 Years</td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-danger">Remove</button>
-                    </td>
+                    <td><button class="btn btn-sm btn-outline-info px-3">view</button></td>
                 </tr>
             </tbody>
         </table>
