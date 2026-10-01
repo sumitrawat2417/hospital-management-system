@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Bootstrap 'row' and 'justify-content-center' puts the login box exactly in the middle of the screen! -->
+<div class="row justify-content-center">
+    <!-- 'col-md-5' means the box will take up 5 out of 12 columns on a desktop (making it a nice medium size) -->
+    <div class="col-md-5">
+        
+        <!-- We use a Bootstrap Card to make it look like a clean, floating box -->
+        <div class="card shadow mt-4">
+            <div class="card-header bg-primary text-white text-center">
+                <h4>System Login</h4>
+            </div>
+            <div class="card-body p-4">
+                
+                <!-- Notice method="POST" ! This tells the browser to send data securely to Flask -->
+                <form method="POST" action="/login">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <!-- name="username" is VERY important. This is how Flask finds the data in Python -->
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label">Password</label>
+                        <!-- type="password" hides the characters as dots -->
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <!-- 'w-100' makes the button stretch 100% across the card -->
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    
+                </form>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

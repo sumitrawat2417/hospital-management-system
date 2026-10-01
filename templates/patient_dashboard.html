@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <!-- Display the patient's actual name dynamically! -->
+        <h2 class="text-primary">Welcome, {{ patient_name }}!</h2>
+        <p class="lead">Manage your health and appointments here.</p>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Left Column: Quick Actions (Buttons) -->
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <a href="#" class="btn btn-success w-100 mb-2">🔍 Search Doctors</a>
+                <a href="#" class="btn btn-outline-primary w-100">📅 Book Appointment</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column: My Appointments Table -->
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0 text-primary">My Appointments</h5>
+            </div>
+            <div class="card-body">
+                <!-- Bootstrap table styling -->
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Hardcoded for now. Later we will use a Jinja loop here! -->
+                        <tr>
+                            <td>Dr. Smith (Cardiology)</td>
+                            <td>2026-10-05</td>
+                            <td>10:00 AM</td>
+                            <!-- Badges look great for statuses -->
+                            <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Jones (Pediatrics)</td>
+                            <td>2026-09-20</td>
+                            <td>02:30 PM</td>
+                            <td><span class="badge bg-success">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

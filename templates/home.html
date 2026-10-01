@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital System</title>
+    <!-- 1. BOOTSTRAP: This single line gives you thousands of pre-made CSS classes! -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<!-- Bootstrap class 'bg-light' makes the background a nice soft gray -->
+<body class="bg-light">
+
+    <!-- Bootstrap class 'container' centers everything nicely with margins -->
+    <!-- 'mt-5' means Margin-Top: 5 units -->
+    <div class="container mt-5">
+        
+        <!-- 2. JINJA: We use double curly braces to print Python variables! -->
+        <!-- 'text-primary' makes the text blue -->
+        <h1 class="text-primary">Welcome to {{ name }}!</h1>
+        
+        <p class="lead">Here are our top doctors available today:</p>
+
+        <!-- Bootstrap 'card' styling makes a nice white box with a shadow -->
+        <div class="card shadow-sm p-4">
+            
+            <ul class="list-group">
+                <!-- 3. JINJA: We can write Python loops directly inside HTML using the percentage brackets -->
+                {% for doc in doctors %}
+                    <!-- 'list-group-item' puts a nice border around each list item -->
+                    <li class="list-group-item">{{ doc }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <br>
+        <!-- Bootstrap Button styling: 'btn' makes it a button, 'btn-success' makes it green -->
+        <button class="btn btn-success">Book Appointment</button>
+    </div>
+
+</body>
+</html>
